@@ -20,7 +20,23 @@ package io.github.uhsk.kit
 import io.github.uhsk.kit.annotations.DateField
 import org.apache.commons.lang3.time.DateUtils
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
+
+const val DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MIN_SECOND = "yyyy-MM-dd HH:mm:ss"
+const val DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MIN = "yyyy-MM-dd HH:mm"
+const val DATE_FORMAT_YEAR_MONTH_DAY_HOUR = "yyyy-MM-dd HH"
+const val DATE_FORMAT_YEAR_MONTH_DAY = "yyyy-MM-dd"
+const val DATE_FORMAT_YEAR_MONTH = "yyyy-MM"
+const val DATE_FORMAT_YEAR = "yyyy"
+const val DATE_FORMAT_MONTH = "MM"
+const val DATE_FORMAT_DAY = "dd"
+const val DATE_FORMAT_MONTH_DAY = "MM-dd"
+const val DATE_FORMAT_HOUR_MIN_SECOND = "HH:mm:ss"
+const val DATE_FORMAT_HOUR_MIN = "HH:mm"
+const val DATE_FORMAT_DATE_FORMAT_YEAR_MONTH_DAY_HOUR_MIN_SECOND_SSSZ = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
 /**
  * @since 1.0.0

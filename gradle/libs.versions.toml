@@ -1,14 +1,15 @@
 [versions]
-compileSdk  = '31'
+compileSdk  = '34'
 minSdk      = '21'
 
 [libraries]
 #
 # androidx & kotlin
 #
-androidx-core       = 'androidx.core:core-ktx:1.7.0'
-androidx-appcompat  = 'androidx.appcompat:appcompat:1.4.1'
-androidx-material   = 'com.google.android.material:material:1.5.0'
+androidx-core       = 'androidx.core:core-ktx:1.12.0'
+androidx-appcompat  = 'androidx.appcompat:appcompat:1.6.1'
+androidx-material   = 'com.google.android.material:material:1.10.0'
+androidx-constraintlayout = 'androidx.constraintlayout:constraintlayout:2.1.4'
 
 #
 # commons
@@ -20,5 +21,5 @@ common-lang     = 'org.apache.commons:commons-lang3:3.12.0'
 # test
 #
 test-junit            = 'junit:junit:4.13.2'
-test-android-ext      = 'androidx.test.ext:junit:1.1.3'
-test-android-espresso = 'androidx.test.espresso:espresso-core:3.4.0'
+test-android-ext      = 'androidx.test.ext:junit:1.1.5'
+test-android-espresso = 'androidx.test.espresso:espresso-core:3.5.1'
