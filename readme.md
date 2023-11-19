@@ -11,20 +11,23 @@ val sha1 = "test".sha1()
 
 ## 使用
 
-最新版本：[![](https://jitpack.io/v/uhsk/kotlin-android-extension.svg)](https://jitpack.io/#uhsk/kotlin-android-extension)
+最新版本：[![](https://jitpack.io/v/ethann-tech/kotlin-android-extension.svg)](https://jitpack.io/#ethann-tech/kotlin-android-extension)
+
 
 ```groovy
 allprojects {
     repositories {
         ...
         maven { url 'https://jitpack.io' }
+        或
+        maven { url = uri(path = "https://www.jitpack.io") }
     }
 }
 ```
 
 ```groovy
 dependencies {
-    implementation 'com.github.uhsk:kotlin-android-extension:latest'
+    implementation 'com.github.ethann-tech:kotlin-android-extension:latest'
 }
 ```
 
@@ -33,7 +36,7 @@ dependencies {
 如遇到您项目中使用的kotlin版本和当前项目的kotlin版本不一致导致的冲突，可使用：
 ```groovy
 dependencies {
-    implementation ('com.github.uhsk:kotlin-android-extension:latest') {
+    implementation ('com.github.ethann-tech:kotlin-android-extension:latest') {
         exclude group: 'org.jetbrains.kotlin'   // 过滤此项目使用的kotlin版本，使用您项目的kotlin版本
     }
 }
@@ -43,7 +46,7 @@ dependencies {
 
 ```c++
 /*
- * Copyright (C) 2022. sollyu
+ * Copyright (C) 2022. sollyu,ethan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
