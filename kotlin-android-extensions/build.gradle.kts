@@ -2,6 +2,8 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
+    id("maven-publish")
 }
 android {
     compileSdk =libs.versions.compileSdk.get().toInt()
@@ -36,4 +38,18 @@ dependencies {
     testImplementation (libs.test.junit)
     androidTestImplementation (libs.test.android.ext)
     androidTestImplementation ( libs.test.android.espresso)
+}
+
+afterEvaluate {
+    publishing{
+        publications {
+            create<MavenPublication>("release") {
+                groupId = "com.github.ethann-tech"
+                artifactId = "kotlin-android-extension"
+                version = "1.0.0"
+                from(components["release"])
+            }
+
+        }
+    }
 }
