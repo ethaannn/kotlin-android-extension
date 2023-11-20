@@ -17,12 +17,15 @@
 
 package io.github.uhsk.android.extension.app
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import io.github.uhsk.android.extension.app.databinding.ActivityMainBinding
-import io.github.uhsk.kit.android.startActivityForSystemByShutdown
-
+import io.github.uhsk.kit.android.dp2px
+import io.github.uhsk.kit.android.px2dp
+import io.github.uhsk.kit.android.px2sp
+import io.github.uhsk.kit.android.sp2px
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var mViewBinding: ActivityMainBinding
@@ -31,7 +34,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         mViewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mViewBinding.root)
-
         mViewBinding.btnContextTest.setOnClickListener(this)
     }
 
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun onClickButtonTest(view: View) {
-        this.startActivityForSystemByShutdown()
+//        this.startActivityForSystemByShutdown()
+        println("系统版本= ".plus(Build.VERSION.SDK_INT))
+        println("屏幕密度= ".plus(resources.displayMetrics.density))
+        println("屏幕ScaleDensity= " .plus(resources.displayMetrics.scaledDensity))
+        println("10 dp convert px = ".plus(10.dp2px()))
+        println("10 sp convert px= ".plus(10.sp2px()))
+        println("10 px convert dp= ".plus(10.px2dp()))
+        println("10 px convert sp= ".plus(10.px2sp()))
     }
 }
