@@ -284,6 +284,7 @@ fun Context.dp2px(dp: Int): Int {
  * @since 1.0.3
  * @author sollyu
  */
+@Deprecated(message = "请使用Number类的扩展函数", replaceWith = ReplaceWith(expression = "请使用Number类的扩展函数", imports = arrayOf("io.github.uhsk.kit.android.sp2px")))
 fun Context.sp2px(sp: Int): Int {
     return (fontDensity * sp + 0.5).toInt()
 }
