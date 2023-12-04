@@ -416,6 +416,7 @@ fun Context.getPathOfObb(): File {
  * @author sollyu
  */
 val Context.density: Float
+
     get() = this.resources.displayMetrics.density
 
 /**
@@ -426,3 +427,4 @@ val Context.density: Float
  */
 val Context.fontDensity: Float
     get() = this.resources.displayMetrics.scaledDensity
+
