@@ -1,6 +1,5 @@
 package io.github.uhsk.kit.android
 
-import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.util.TypedValue
