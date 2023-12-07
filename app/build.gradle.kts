@@ -12,8 +12,8 @@ android {
         applicationId = "io.github.uhsk.android.extension.app"
         minSdk =libs.versions.minSdk.get().toInt()
         targetSdk =libs.versions.compileSdk.get().toInt()
-        versionCode= 14
-        versionName ="1.0.4"
+        versionCode= 15
+        versionName ="1.0.5"
     }
 
     buildFeatures {
