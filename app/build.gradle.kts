@@ -45,4 +45,7 @@ dependencies {
     implementation (libs.androidx.material)
     implementation (project(mapOf("path" to ":kotlin-android-extensions")))
     implementation (libs.androidx.constraintlayout)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.datastore.preferences.core)
+    implementation(libs.androidx.datastore.preferences.rxjava3)
 }

@@ -33,6 +33,9 @@ import androidx.annotation.MainThread
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StringRes
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import io.github.uhsk.kit.android.defs.AudioServiceStreamFlags
 import io.github.uhsk.kit.android.defs.AudioServiceStreamType
 import java.io.File
@@ -416,7 +419,6 @@ fun Context.getPathOfObb(): File {
  * @author sollyu
  */
 val Context.density: Float
-
     get() = this.resources.displayMetrics.density
 
 /**
@@ -427,4 +429,8 @@ val Context.density: Float
  */
 val Context.fontDensity: Float
     get() = this.resources.displayMetrics.scaledDensity
+
+
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "config_settings")
+
 

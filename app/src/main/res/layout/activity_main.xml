@@ -41,4 +41,18 @@
         android:layout_height="wrap_content"
         android:text="关机" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_data_store_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/datastore_save"
+        android:textAllCaps="false" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_data_store_get"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/datastore_get"
+        android:textAllCaps="false" />
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

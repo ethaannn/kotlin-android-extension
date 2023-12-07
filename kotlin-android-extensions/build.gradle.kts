@@ -33,6 +33,9 @@ android {
 dependencies {
     compileOnly ( libs.androidx.core)
     compileOnly (libs.androidx.appcompat)
+    compileOnly(libs.androidx.datastore.preferences)
+    compileOnly(libs.androidx.datastore.preferences.core)
+    compileOnly(libs.androidx.datastore.preferences.rxjava3)
     implementation (libs.common.io)
     implementation (libs.common.lang)
     testImplementation (libs.test.junit)
