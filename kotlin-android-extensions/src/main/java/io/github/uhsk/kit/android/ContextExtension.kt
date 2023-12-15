@@ -22,6 +22,8 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.media.AudioManager
 import android.net.ConnectivityManager
 import android.net.Uri
@@ -29,15 +31,20 @@ import android.os.Build
 import android.os.Environment
 import android.provider.Settings
 import android.widget.Toast
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.MainThread
 import androidx.annotation.RequiresApi
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StringRes
+import androidx.core.content.res.ResourcesCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import io.github.uhsk.kit.android.defs.AudioServiceStreamFlags
 import io.github.uhsk.kit.android.defs.AudioServiceStreamType
+import io.github.uhsk.kit.asColor
+import io.github.uhsk.kit.asDrawable
 import java.io.File
 
 @Suppress(names = ["FunctionName"])
@@ -433,4 +440,21 @@ val Context.fontDensity: Float
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "config_settings")
 
+
+/**
+ * context.asColor(R.color.colorPrimary)
+ *
+ * @param color 颜色值
+ * @return 颜色值
+ */
+fun Context.obtainColor(@ColorRes color:Int):Int = color.asColor(this)
+
+
+/**
+ * context.asDrawable(R.drawable.ic_launcher)
+ *
+ * @param drawable 图标资源
+ * @return 图标资源
+ */
+fun Context.obtainDrawable(@DrawableRes drawable:Int): Drawable = drawable.asDrawable(this)
 

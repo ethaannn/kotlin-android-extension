@@ -23,27 +23,31 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.ethan.titanium.listener.OnMultiClickListener
 import io.github.uhsk.android.extension.app.databinding.ActivityMainBinding
 import io.github.uhsk.kit.android.dataStore
 import io.github.uhsk.kit.android.dp2px
-
+import io.github.uhsk.kit.android.obtainDrawable
 import io.github.uhsk.kit.android.px2dp
 import io.github.uhsk.kit.android.px2sp
 import io.github.uhsk.kit.android.sp2px
-import io.github.uhsk.kit.androidx.datastore.getBoolean
-import io.github.uhsk.kit.androidx.datastore.getDouble
-import io.github.uhsk.kit.androidx.datastore.getFloat
-import io.github.uhsk.kit.androidx.datastore.getInt
-import io.github.uhsk.kit.androidx.datastore.getLong
-import io.github.uhsk.kit.androidx.datastore.getSetString
-import io.github.uhsk.kit.androidx.datastore.getString
-import io.github.uhsk.kit.androidx.datastore.putBoolean
-import io.github.uhsk.kit.androidx.datastore.putDouble
-import io.github.uhsk.kit.androidx.datastore.putFloat
-import io.github.uhsk.kit.androidx.datastore.putInt
-import io.github.uhsk.kit.androidx.datastore.putLong
-import io.github.uhsk.kit.androidx.datastore.putSetString
-import io.github.uhsk.kit.androidx.datastore.putString
+import io.github.uhsk.kit.android.view.backgroundDrawable
+import io.github.uhsk.kit.android.view.imageResource
+import io.github.uhsk.kit.android.view.setOnMultiClickListener
+import io.github.uhsk.kit.jetpack.datastore.getBoolean
+import io.github.uhsk.kit.jetpack.datastore.getDouble
+import io.github.uhsk.kit.jetpack.datastore.getFloat
+import io.github.uhsk.kit.jetpack.datastore.getInt
+import io.github.uhsk.kit.jetpack.datastore.getLong
+import io.github.uhsk.kit.jetpack.datastore.getSetString
+import io.github.uhsk.kit.jetpack.datastore.getString
+import io.github.uhsk.kit.jetpack.datastore.putBoolean
+import io.github.uhsk.kit.jetpack.datastore.putDouble
+import io.github.uhsk.kit.jetpack.datastore.putFloat
+import io.github.uhsk.kit.jetpack.datastore.putInt
+import io.github.uhsk.kit.jetpack.datastore.putLong
+import io.github.uhsk.kit.jetpack.datastore.putSetString
+import io.github.uhsk.kit.jetpack.datastore.putString
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -56,9 +60,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(mViewBinding.root)
         mViewBinding.btnContextTest.setOnClickListener(this)
 
+        mViewBinding.btnContextTest.apply {
+//            backgroundResource =R.drawable.ic_launcher_background
+            backgroundDrawable = context.obtainDrawable(R.drawable.ic_launcher_background)
+        }
+
+        mViewBinding.btnContextTest1.apply {
+            setBackgroundResource(R.color.teal_200)
+        }
+        mViewBinding.image.apply {
+//            imageDrawable =context.obtainDrawable(R.drawable.ic_launcher_background)
+            imageResource=R.drawable.ic_launcher_background
+        }
+
 
         mViewBinding.btnDataStoreSave.setOnClickListener {
             lifecycleScope.launch {
+                println(  mContext.dataStore.hashCode())
                 mContext.dataStore.putInt(key = "age", value = 30)
                 mContext.dataStore.putBoolean(key = "isHaveMoney", true)
                 mContext.dataStore.putDouble(key = "money", value = 312345.345)
@@ -77,7 +95,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 println(mContext.dataStore.getFloat("float"))
                 println(mContext.dataStore.getString("test"))
                 println(mContext.dataStore.getSetString("set"))
+                println(  mContext.dataStore.hashCode())
+
             }
+        }
+        mViewBinding.btnMulti.setOnClickListener(object :OnMultiClickListener(clickCount = 5, clickDuration = 3000){
+            override fun onMultiClick(v: View) {
+
+            }
+        })
+        mViewBinding.btnMulti.setOnMultiClickListener (clickCount = 5, clickDuration = 2000,isClearHits = false){
+            println("在两秒内连续点击了5次")
         }
     }
 

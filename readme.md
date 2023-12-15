@@ -41,6 +41,13 @@ dependencies {
     }
 }
 ```
+## DataStore
+ 如果使用DataStore 需要在你的项目中添加依赖
+```markdown
+implementation ("androidx.datastore:datastore-preferences:1.0.0")
+implementation ("androidx.datastore:datastore-preferences-core:1.0.0")
+implementation ("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
+```
 
 ## LICENSE
 
