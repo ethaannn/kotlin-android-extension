@@ -1,7 +1,6 @@
 package com.ethan.titanium.listener
 
 import android.view.View
-import androidx.appcompat.widget.Toolbar
 import java.util.*
 
 /**
