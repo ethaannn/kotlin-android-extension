@@ -17,6 +17,10 @@
 
 package io.github.uhsk.kit
 
+import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.annotation.ColorRes
+import androidx.core.content.res.ResourcesCompat
 import java.nio.ByteBuffer
 
 /**
@@ -35,3 +39,14 @@ import java.nio.ByteBuffer
 fun Int.toByteArray(): ByteArray {
     return ByteBuffer.allocate(Int.SIZE_BYTES).putInt(this).array()
 }
+
+/**
+ * 字体颜色设置
+ *
+ * @param context 上下文
+ */
+
+fun Int.asColor(context: Context): Int = ResourcesCompat.getColor(context.applicationContext.resources, this, null)
+
+fun Int.asDrawable(context: Context):Drawable =ResourcesCompat.getDrawable(context.applicationContext.resources,this,null)?: throw NullPointerException("该资源文件转Drawable为null")
+

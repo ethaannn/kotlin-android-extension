@@ -1,4 +1,4 @@
-package io.github.uhsk.kit.androidx.datastore
+package io.github.uhsk.kit.jetpack.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -12,12 +12,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-/**
- * 获取key 对应的第一个Int值
- * 如果不存在返回0
- * @since 1.0.4
- * @author ethan
- */
+
 suspend fun DataStore<Preferences>.getInt(key: String): Int = this.data.map { it[intPreferencesKey(key)] ?: 0 }.first()
 
 suspend fun DataStore<Preferences>.putInt(key: String, value: Int) = this.edit { it[intPreferencesKey(key)] = value }
